@@ -16,7 +16,6 @@ class Solution {
                 max = Math.max(max, i - st.peek());
             }
         }
-
         return max;
     }
 }
