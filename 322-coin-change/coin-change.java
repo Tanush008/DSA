@@ -19,7 +19,7 @@ class Solution {
                 dp[index][Target] = Target / coins[index];
                 return Target / coins[index];
             }
-            dp[index][Target] = Target / coins[index];
+            dp[index][Target] = (int)(1e9);
             return (int) (1e9);
         }
         if (dp[index][Target] != -1) {
