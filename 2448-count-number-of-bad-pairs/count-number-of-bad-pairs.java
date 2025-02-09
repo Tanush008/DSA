@@ -13,3 +13,9 @@ class Solution {
         return total - goodpair;
     }
 }
+// tujhe ek cheez dikha tha hu
+// test case kitna bda aayega ek abi
+// dekh kitna bda h
+
+// mujhe nahi dikhega vo 
+// ok
