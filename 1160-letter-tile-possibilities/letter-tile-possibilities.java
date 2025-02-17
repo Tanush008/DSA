@@ -3,24 +3,27 @@ class Solution {
 
     public int numTilePossibilities(String tiles) {
         m = tiles.length();
-        HashSet<String> set = new HashSet<>();
-        boolean used[] = new boolean[m];
-        backtrack(tiles, set, used, "");
-        return set.size() - 1;
+        // HashSet<String> set = new HashSet<>();
+        // boolean used[] = new boolean[m];
+        int[]freq = new int[26];
+        for(int i = 0;i<m;i++){
+            freq[tiles.charAt(i)-'A']++;
+        }
+           int count=backtrack(freq);
+        return count;
     }
 
-    public void backtrack(String tiles, HashSet<String> set, boolean used[], String curr) {
-        if (set.contains(curr)) {
-            return;
-        }
-        set.add(curr);
-        for (int i = 0; i < m; i++) {
-            if (used[i]) {
+    public int backtrack(int freq[]) {
+        int count = 0;
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] == 0) {
                 continue;
             }
-            used[i] = true;
-            backtrack(tiles, set, used, curr + tiles.charAt(i));
-            used[i] = false;
+            count++;
+            freq[i]--;
+            count += backtrack(freq);
+            freq[i]++;
         }
+        return count;
     }
 }
