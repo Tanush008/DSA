@@ -1,6 +1,5 @@
 class Solution {
     public int maxAbsoluteSum(int[] nums) {
-        int n = nums.length;
         int maxSum = Integer.MIN_VALUE;
         int minSum = Integer.MAX_VALUE;
         int currPSum = 0;
