@@ -8,8 +8,8 @@ class Solution {
             int left = target - right;
 
             if (map.containsKey(left)) {
-                ans[0] = map.get(left);
-                ans[1] = i;
+                ans[1] = map.get(left);
+                ans[0] = i;
                 return ans;
             }
             map.put(nums[i], i);
