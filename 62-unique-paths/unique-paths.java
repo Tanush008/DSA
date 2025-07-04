@@ -4,22 +4,22 @@ class Solution {
         for (int[] i : t) {
             Arrays.fill(i, -1);
         }
-        return solve(0, 0, m, n,t);
+        return solve(m-1, n-1, t);
     }
 
-    public int solve(int i, int j, int m, int n,int[][]t) {
-       
-        if (i >= m || j >= n) {
+    public int solve(int m, int n, int[][] t) {
+
+        if (m < 0 || n < 0) {
             return 0;
         }
-        if (i == m - 1 && j == n - 1) {
+        if (m == 0 && n == 0) {
             return 1;
         }
-        if (t[i][j] != -1) {
-            return t[i][j];
+        if (t[m][n] != -1) {
+            return t[m][n];
         }
-        int down = solve(i + 1, j, m, n,t);
-        int right = solve(i, j + 1, m, n,t);
-        return t[i][j] = down + right;
+        int down = solve(m, n - 1, t);
+        int right = solve(m - 1, n, t);
+        return t[m][n] = down + right;
     }
 }
