@@ -10,38 +10,22 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-        ListNode middle = middle(head);
-        ListNode reverse = reverse(middle);
-        ListNode curr = head;
-        while (reverse.next != null) {
-            ListNode tempCurr = curr.next;
-            curr.next = reverse;
-            ListNode tempRev = reverse.next;
-            reverse.next = tempCurr;
-            curr = tempCurr;
-            reverse = tempRev;
+        Stack<ListNode> st = new Stack<>();
+        ListNode temp = head;
+        while (temp != null) {
+            st.push(temp);
+            temp = temp.next;
         }
-    }
-
-    public ListNode middle(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
-        return slow;
-    }
-
-    public ListNode reverse(ListNode head) {
-        ListNode curr = head;
-        ListNode temp = null;
-        while (curr != null) {
-            ListNode nextNode = curr.next;
-            curr.next = temp;
+        int k = st.size() / 2;
+        temp = head;
+        while (k != 0) {
+            ListNode topNode = st.pop();
+            ListNode curr = temp.next;
+            temp.next = topNode;
+            topNode.next = curr;
             temp = curr;
-            curr = nextNode;
+            k--;
         }
-        return temp;
+        temp.next = null;
     }
 }
