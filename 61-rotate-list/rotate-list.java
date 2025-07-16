@@ -23,7 +23,7 @@ class Solution {
         int rotation = k % len;
         int skip = len - rotation;
         ListNode newNode = head;
-        for (int i = 0; i < skip - 1; i++) {
+        for (int i = 1; i < skip ; i++) {
             newNode = newNode.next;
         }
         head = newNode.next;
