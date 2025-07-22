@@ -25,7 +25,6 @@ class Solution {
                 break;
             }
             currComb.add(i);
-
             solve(currComb, i + 1, k, n - i, res);
             currComb.remove(currComb.size() - 1);
         }
