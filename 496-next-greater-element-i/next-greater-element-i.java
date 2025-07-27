@@ -15,7 +15,7 @@ class Solution {
             } else {
                 mp.put(curr, st.peek());
             }
-            st.push(curr);
+            st.push(nums2[j]);
         }
         for (int i = 0; i < n; i++) {
             nge[i] = mp.get(nums1[i]);
