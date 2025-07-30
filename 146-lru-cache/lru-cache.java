@@ -60,9 +60,10 @@ class LRUCache {
     }
 
     public void addNode(Node node) {
+        Node temp = head.next;
         node.prev = head;
-        node.next=head.next;
-        head.next.prev=node;
+        node.next=temp;
+        temp.prev=node;
         head.next=node;
     }
 
