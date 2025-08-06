@@ -6,7 +6,7 @@ class Solution {
         for (int i = 0; i < n; i++) {
             min = Math.min(prices[i], min);
             max = Math.max(prices[i] - min, max);
-        }
+        } 
         return max;
     }
 }
