@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         int left = 1;
         int right  = 1;
-        int maxPrd = nums[0];
+        int maxPrd = Integer.MIN_VALUE;
         for(int i = 0;i<n;i++){
             if(left==0){
                 left=1;
@@ -15,6 +15,6 @@ class Solution {
             right*=nums[n-i-1];
             maxPrd = Math.max(maxPrd,Math.max(left,right));
         }
-        return maxPrd;
+        return (maxPrd==Integer.MIN_VALUE)?nums[0]:maxPrd;
     }
 }
